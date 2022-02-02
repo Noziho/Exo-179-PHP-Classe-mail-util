@@ -51,8 +51,13 @@ class mail {
     {
         $this->destinataire = $destinataire;
     }
+    public function writingMail ($destinataireParam, $objet, $message) :void {
+        $this->setDestinataire($destinataireParam);
+        $this->setSujet($objet);
+        $this->setCorpsMessage($message);
+    }
 
     public function sendMail () :void {
-        mail();
+        mail($this->getDestinataire(), $this->getSujet(), $this->getCorpsMessage());
     }
 }
